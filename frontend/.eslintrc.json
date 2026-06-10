@@ -2,7 +2,9 @@
   "root": true,
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "jest": true,
+    "node": true
   },
   "extends": [
     "eslint:recommended",
@@ -15,8 +17,17 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "no-unused-vars": ["warn"],
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "no-undef": "off",
+    "react/no-unescaped-entities": "off",
+    "no-empty": ["warn"]
   }
 }
