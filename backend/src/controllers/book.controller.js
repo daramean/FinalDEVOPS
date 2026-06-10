@@ -181,7 +181,6 @@ exports.createBook = async (req, res) => {
 
   // If we have ISBN error, retry without ISBN
   if (Object.keys(fieldErrors).length > 0) {
-    try {
       const { rows } = await query(
         `INSERT INTO books
           (category_id, title, author, isbn, publisher, publish_year,
@@ -201,9 +200,6 @@ exports.createBook = async (req, res) => {
         data: rows[0],
         errors: fieldErrors // Include field errors
       });
-    } catch (retryErr) {
-      throw retryErr;
-    }
   }
 };
 
